@@ -30,7 +30,7 @@ export default class PQueue<QueueType extends Queue<RunFunction, EnqueueOptionsT
 
 	#intervalCount = 0;
 
-	readonly #intervalCap: number;
+	#intervalCap!: number;
 
 	readonly #interval: number;
 
@@ -83,7 +83,7 @@ export default class PQueue<QueueType extends Queue<RunFunction, EnqueueOptionsT
 
 		this.#carryoverConcurrencyCount = options.carryoverConcurrencyCount!;
 		this.#isIntervalIgnored = options.intervalCap === Number.POSITIVE_INFINITY || options.interval === 0;
-		this.#intervalCap = options.intervalCap;
+		this.intervalCap = options.intervalCap;
 		this.#interval = options.interval;
 		this.#queue = new options.queueClass!();
 		this.#queueClass = options.queueClass!;
@@ -233,6 +233,14 @@ export default class PQueue<QueueType extends Queue<RunFunction, EnqueueOptionsT
 		this.#concurrency = newConcurrency;
 
 		this.#processQueue();
+	}
+
+	get intervalCap(): number {
+		return this.#intervalCap;
+	}
+
+	set intervalCap(newIntervalCap: number) {
+		this.#intervalCap = newIntervalCap;
 	}
 
 	/**
