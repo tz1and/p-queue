@@ -1,6 +1,6 @@
 {
 	"name": "p-queue",
-	"version": "7.2.0",
+	"version": "7.3.0",
 	"description": "Promise queue with concurrency control",
 	"license": "MIT",
 	"repository": "sindresorhus/p-queue",
@@ -57,6 +57,7 @@
 		"delay": "^5.0.0",
 		"in-range": "^3.0.0",
 		"nyc": "^15.1.0",
+		"p-defer": "^4.0.0",
 		"random-int": "^3.0.0",
 		"time-span": "^5.0.0",
 		"ts-node": "^10.4.0",
